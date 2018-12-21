@@ -47,6 +47,7 @@ import {eventEmitter} from './main.js';
 
 </script>
 
+<!--
 <style>
     div { border: 1px solid #cecece; padding: 5px; margin: 5px; }
-</style>
+</style>-->

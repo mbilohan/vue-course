@@ -1,5 +1,25 @@
 <template>
     <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <router-link tag="li" class="nav-item" exact to="/form" active-class="active">
+                        <a class="nav-link">Form</a>
+                    </router-link>
+                    <router-link tag="li" class="nav-item" to="/form-validation" active-class="active">
+                        <a class="nav-link">Form Validation</a>
+                    </router-link>
+                    <router-link tag="li" class="nav-item" to="/number/3" active-class="active">
+                        <a class="nav-link">Number 3</a>
+                    </router-link>
+                    <router-link tag="li" class="nav-item" to="/number/4" active-class="active">
+                        <a class="nav-link">Number 4</a>
+                    </router-link>
+                </ul>
+            </div>
+        </nav>
+
+        <router-view></router-view>
         <h1 v-colored:background.font.delay="'orange'" v-if="visible">{{ title }}: {{ carName }}</h1>
         <h1 v-colored:color.delay="'orange'" v-if="visible">{{ title }}: {{ carName }}</h1>
         <button @click="visible = !visible">Toggle visibility</button>

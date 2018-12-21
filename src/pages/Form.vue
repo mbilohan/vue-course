@@ -48,7 +48,7 @@
 </template>
 
 <script>
-    import OnOff from './OnOff.vue'
+    import OnOff from '../OnOff.vue'
 
     export default {
       data() {
