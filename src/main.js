@@ -1,48 +1,16 @@
 import Vue from 'vue'
-import Vuelidate from 'vuelidate'
-import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
+import App from './App'
 
-import App from './App.vue'
-import ColorDirective from './color'
-import List from './list'
+Vue.use(VueResource);
 
-// import Form from './Form.vue'
-// import FormValidation from './FormValidation'
+Vue.http.options.root = 'http://localhost:3000/';
 
-import router from './routes'
-
-export const eventEmitter = new Vue();
-
-Vue.directive('colored', ColorDirective);
-
-Vue.filter('uppercase', (value) => value.toUpperCase());
-
-Vue.component('app-list', List);
-
-Vue.use(Vuelidate);
-Vue.use(VueRouter);
-
-Vue.mixin({
-  beforeCreate() {
-    console.log('Before created');
-  }
+Vue.http.interceptors.push(request => {
+  request.headers.set('Auth', 'RAND TOKEN ' + Math.random())
 });
 
 new Vue({
   el: '#app',
-  render: h => h(App),
-  router: router
+  render: h => h(App)
 });
-
-/*
-new Vue({
-  el: '#form',
-  render: h => h(Form)
-});
-
-
-new Vue({
-  el: '#form-validation',
-  render: h => h(FormValidation)
-});
-*/
